@@ -91,6 +91,10 @@ class Snake():
 
         #self.FPS = 15
         FPS = self.FPS
+        bodyClr = pygame.Color("#79d70f")
+        headClr = pygame.Color("#d32626")
+        borderClr = pygame.Color("#f5a31a")
+        foodClr = pygame.Color("#edf4f2")
 
         green = pygame.Color("#00b906")
         blue = pygame.Color("#035aa6")
@@ -248,15 +252,16 @@ class Snake():
             gameDisplay.fill(black)
             # gameDisplay.blit(image, (0, 0))
             for i in range(1, len(self.snakeX)):
-                pygame.draw.rect(gameDisplay, green, [self.snakeX[i], self.snakeY[i], blockSize, blockSize])
-            pygame.draw.rect(gameDisplay, green, [self.lead_x, self.lead_y, blockSize, blockSize])
+                pygame.draw.rect(gameDisplay, bodyClr, [self.snakeX[i], self.snakeY[i], blockSize, blockSize], 3)
+            pygame.draw.rect(gameDisplay, headClr, [self.lead_x, self.lead_y, blockSize, blockSize], 10)
+            # self.snakeX.reverse()
+            # self.snakeY.reverse()
+            pygame.draw.rect(gameDisplay, borderClr, [0, 0, borderSize, displayY])
+            pygame.draw.rect(gameDisplay, borderClr, [0, 0, displayX, borderSize])
+            pygame.draw.rect(gameDisplay, borderClr, [0, displayY - borderSize, displayX, borderSize])
+            pygame.draw.rect(gameDisplay, borderClr, [displayX - borderSize, 0, borderSize, displayY])
 
-            pygame.draw.rect(gameDisplay, red, [0, 0, borderSize, displayY])
-            pygame.draw.rect(gameDisplay, red, [0, 0, displayX, borderSize])
-            pygame.draw.rect(gameDisplay, red, [0, displayY-borderSize, displayX, borderSize])
-            pygame.draw.rect(gameDisplay, red, [displayX-borderSize, 0, borderSize, displayY])
-
-            pygame.draw.rect(gameDisplay, blue, [foodX, foodY, blockSize, blockSize])
+            pygame.draw.rect(gameDisplay, foodClr, [foodX, foodY, blockSize, blockSize])
 
             pygame.display.update()
 
