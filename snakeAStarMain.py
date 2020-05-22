@@ -131,45 +131,45 @@ class Snake():
 
         while not gameExit:
 
-
-            ##############  Automation Logic  ################
-            ###Logic For Walls
-            if self.keyX and self.lead_x == displayX-(2*self.blockSize):
-                self.down()
-            elif self.keyX and self.lead_x == self.blockSize:
-                self.up()
-            elif self.keyY and self.lead_y == displayY-(2*self.blockSize):
-                self.left()
-            elif self.keyY and self.lead_y == self.blockSize:
-                self.right()
-
-
-
-            ###Logic for Food
-            if self.keyX and self.lead_x == foodX and foodY > self.lead_y:
-                self.down()
-            elif self.keyX and self.lead_x == foodX and foodY < self.lead_y:
-                self.up()
-            elif self.keyY and self.lead_y == foodY and foodX > self.lead_x:
-                self.right()
-            elif self.keyY and self.lead_y == foodY and foodX < self.lead_x:
-                self.left()
-
-
-
-            #Logic For Stucking in Corners
-            if self.lead_x==560 and self.lead_y==580:
-                self.left()
-            elif self.lead_x==20 and self.lead_y==0:
-                self.right()
-            elif self.lead_x==580 and self.lead_y==20:
-                self.down()
-            elif self.lead_x==0 and self.lead_y==560:
-                self.up()
-
-
-            ####### Automation Logic End   ##################
-
+            #
+            # ##############  Automation Logic  ################
+            # ###Logic For Walls
+            # if self.keyX and self.lead_x == displayX-(2*self.blockSize):
+            #     self.down()
+            # elif self.keyX and self.lead_x == self.blockSize:
+            #     self.up()
+            # elif self.keyY and self.lead_y == displayY-(2*self.blockSize):
+            #     self.left()
+            # elif self.keyY and self.lead_y == self.blockSize:
+            #     self.right()
+            #
+            #
+            #
+            # ###Logic for Food
+            # if self.keyX and self.lead_x == foodX and foodY > self.lead_y:
+            #     self.down()
+            # elif self.keyX and self.lead_x == foodX and foodY < self.lead_y:
+            #     self.up()
+            # elif self.keyY and self.lead_y == foodY and foodX > self.lead_x:
+            #     self.right()
+            # elif self.keyY and self.lead_y == foodY and foodX < self.lead_x:
+            #     self.left()
+            #
+            #
+            #
+            # #Logic For Stucking in Corners
+            # if self.lead_x==560 and self.lead_y==580:
+            #     self.left()
+            # elif self.lead_x==20 and self.lead_y==0:
+            #     self.right()
+            # elif self.lead_x==580 and self.lead_y==20:
+            #     self.down()
+            # elif self.lead_x==0 and self.lead_y==560:
+            #     self.up()
+            #
+            #
+            # ####### Automation Logic End   ##################
+            #
 
 
             for event in pygame.event.get():
@@ -269,7 +269,7 @@ class Snake():
         pygame.quit()
         quit()
 
-ob = Snake(600,600,60)
+ob = Snake(600,600,15)
 ob.snake_run()
 
 

@@ -35,11 +35,13 @@ class AStar:
         self.path = []
 
         #### Make Objects
+
         for i in range(self.cols):
             for j in range(self.rows):
                 self.grid[i].append(self.Spot(self, i, j))
 
         ########### Add Neighbors
+
         for i in range(self.cols):
             for j in range(self.rows):
                 self.grid[i][j].addNeighbors(self.grid)
@@ -49,6 +51,7 @@ class AStar:
 
         # self.start = self.grid[0][0]
         # self.end = self.grid[self.cols-10][self.rows-6]
+
         self.start = None
         self.end = None
 
@@ -59,6 +62,7 @@ class AStar:
         return self.Spot(self)
 
     class Spot:
+
         def __init__(self, aStar, i, j):
             self.aStar = aStar
             self.i = i
@@ -139,8 +143,7 @@ class AStar:
                     if current == self.end:
 
                         self.status = False
-                        self.path.insert(0,
-                                         self.end)  #######################################################################
+                        self.path.insert(0, self.end)
                         for itr in self.path:
                             ti = itr.i
                             tj = itr.j
@@ -198,7 +201,6 @@ class AStar:
                     while temp.previous:
                         self.path.append(temp.previous)
                         temp = temp.previous
-                    # self.path.insert(0,self.end)  #######################################################################
 
                     for itr in self.path:
                         ti = itr.i
@@ -234,6 +236,7 @@ class AStar:
 
 
 class Snake:
+
     def __init__(self, x, y, FPS):
 
         pygame.init()
@@ -252,8 +255,10 @@ class Snake:
 
         self.lead_x = self.displayX / 2
         self.lead_y = self.displayY / 2
+
         self.lead_x_change = 0
         self.lead_y_change = 0
+
         self.keyX = True
         self.keyY = True
 
@@ -331,6 +336,7 @@ class Snake:
 
             self.snakeX.pop(-1)
             self.snakeX.insert(0, self.lead_x)
+
             self.snakeY.pop(-1)
             self.snakeY.insert(0, self.lead_y)
 
@@ -382,6 +388,7 @@ class Snake:
 
             if len(set(mergeXY[1:])) <= len(mergeXY[1:]) <= len(set(mergeXY[1:])) + 10:
                 pass
+
             else:
                 print("Game Over")
                 break;
@@ -389,15 +396,20 @@ class Snake:
             gameDisplay.fill(black)
             # gameDisplay.blit(image, (0, 0))
 
+            # Snake Body
             for i in range(1, len(self.snakeX)):
                 pygame.draw.rect(gameDisplay, bodyClr, [self.snakeX[i], self.snakeY[i], blockSize, blockSize], 3)
+
+            # Snake Head
             pygame.draw.rect(gameDisplay, headClr, [self.lead_x, self.lead_y, blockSize, blockSize], 10)
 
+            # Borders
             pygame.draw.rect(gameDisplay, borderClr, [0, 0, borderSize, displayY])
             pygame.draw.rect(gameDisplay, borderClr, [0, 0, displayX, borderSize])
             pygame.draw.rect(gameDisplay, borderClr, [0, displayY - borderSize, displayX, borderSize])
             pygame.draw.rect(gameDisplay, borderClr, [displayX - borderSize, 0, borderSize, displayY])
 
+            # Food
             pygame.draw.rect(gameDisplay, foodClr, [foodX, foodY, blockSize, blockSize])
 
             pygame.display.update()
@@ -407,5 +419,5 @@ class Snake:
         quit()
 
 
-ob = Snake(600, 600, 30)
+ob = Snake(600, 600, 10000)
 ob.snake_run()

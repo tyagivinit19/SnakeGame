@@ -31,8 +31,8 @@ class AStar():
         self.gameExit = False
         self.status = True
         
-        self.cols = 10
-        self.rows = 10
+        self.cols = 50
+        self.rows = 50
         self.grid = [[] for _ in range(self.cols)]
         self.w = self.width / self.cols
         self.h = self.height / self.rows
