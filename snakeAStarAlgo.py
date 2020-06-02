@@ -54,7 +54,7 @@ class AStar():
         self.closeSet = []
         
         self.start = self.grid[0][0]
-        self.end = self.grid[self.cols-10][self.rows-6]
+        self.end = self.grid[self.cols-1][self.rows-1]
         self.start.wall = False
         self.end.wall = False
         

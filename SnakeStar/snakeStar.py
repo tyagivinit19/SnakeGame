@@ -419,5 +419,5 @@ class Snake:
         quit()
 
 
-ob = Snake(600, 600, 10000)
+ob = Snake(600, 600, 60)
 ob.snake_run()
