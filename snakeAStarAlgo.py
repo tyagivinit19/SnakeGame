@@ -13,7 +13,7 @@ from random import randrange
 
 
 
-class AStar():
+class AStar:
     
     def __init__(self):
         
@@ -31,8 +31,8 @@ class AStar():
         self.gameExit = False
         self.status = True
         
-        self.cols = 50
-        self.rows = 50
+        self.cols = 60
+        self.rows = 60
         self.grid = [[] for _ in range(self.cols)]
         self.w = self.width / self.cols
         self.h = self.height / self.rows
